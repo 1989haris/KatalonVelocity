@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>AchDebitPersonal_AmountMissing</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>646fb8d0-0477-4b25-94b2-0c76b121f785</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>AchDebitPersonal_MissingZipCode</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5fbf7bea-86d7-4699-84b7-4a5153ae95b2</testCaseGuid>
+</TestCaseEntity>
