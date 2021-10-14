@@ -39,13 +39,53 @@ WebUI.setText(findTestObject('Object Repository/VelocityPayment/PersonalCheckPay
 
 WebUI.setText(findTestObject('Object Repository/VelocityPayment/PersonalCheckPaymentEntryPage/input__accountNumber'), '4111111111111111')
 
-WebUI.setText(findTestObject('Object Repository/VelocityPayment/PersonalCheckPaymentEntryPage/input__amount'), '')
+WebUI.setText(findTestObject('Object Repository/VelocityPayment/PersonalCheckPaymentEntryPage/input__amount'), '5')
 
 WebUI.setText(findTestObject('Object Repository/VelocityPayment/PersonalCheckPaymentEntryPage/input__userDefined1'), 'Guddu')
 
 WebUI.click(findTestObject('Object Repository/VelocityPayment/PersonalCheckPaymentEntryPage/input_UDF2_submit'))
 
-WebUI.verifyTextPresent('Amount is required', false)
+WebUI.verifyTextPresent('Transaction Successful', false)
+
+//Grab entire text from the ReceiptPage.
+result3 = WebUI.getText(findTestObject('Object Repository/VelocityPayment/ReceiptPage/div_Transaction Successful'))
+
+//Grab the remittance ID from the captured ReceiptPage.
+def remID = result3.substring(203,227).trim()
+
+//print remittanceID.
+System.out.println('remID is:'+remID)
+
+//Click IssueTransactions link.
+WebUI.click(findTestObject('Object Repository/VelocityPayment/IssueTransactionsPage/a_Issue Transactions'))
+
+//Click onlineCheck CreditorVoid.
+WebUI.click(findTestObject('Object Repository/VelocityPayment/OnlineDebitIssueTransactionsPage/a_Credit or Void'))
+
+//Set remittanceID in the searchBar that we grab from the ReceiptPage on the CreditorVoid Page.
+WebUI.setText(findTestObject('Object Repository/VelocityPayment/CreditOrVoidPage/input_Search Value_searchValue'),remID)
+
+//Click the Search button on the CreditorVoid page.
+WebUI.click(findTestObject('Object Repository/VelocityPayment/CreditOrVoidPage/input_AdvancedSearch_sbutton'))
+
+//Grab the entire text from the ReceiptPage.
+result4 = WebUI.getText(findTestObject('Object Repository/VelocityPayment/SearchResultsPage/div_document'))
+
+//Define the Variable(PaymentId) that stores the value from the result4 variable by using the method substring.
+def PaymentId = result4.substring(249,256).trim()
+
+//what does println step will do in this case?
+println("the paymentId is: "+PaymentId)
+
+// The name of the method and it's parameters will define the Method Signature.
+def remIDLink = WebUI.modifyObjectProperty(findTestObject('Object Repository/VelocityPayment/SearchResultsPage/a_2718322'), 'text', 'equals', PaymentId, true )
+
+
+WebUI.click(remIDLink)
+
+
+
+
 
 
 

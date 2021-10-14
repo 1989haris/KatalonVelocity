@@ -17,32 +17,44 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+//Define the Variable and then assign the value.
+def name ="Raghav"
+println name
 
-//SwitchCase
+//Define the Variable
+def name1
+//Assign the Value to the Variable.
+name1 = "Mohit"
+println name1
 
+//Defining Methods()
+// The Method Sum has two Parameters/Arguments/Variables.Any code inside the curly brackets will belong to the Method.
 /*
- * def x = 10
+ * def sum(int a, int b) { println "Sum is "+(a+b) }
  */
-/*
- * 
- * 
- * def result = ""
- */
+//Calling the Method sum with the same number of Arguments, in this case 2 arguments int a, int b.
+//sum(5,2)
 
-switch(x) {
-	case {x=0}:
-		result = "x is zero"
-		break
-	case {x>0}:
-		result = "x is +ve"
-		break
-	case {x<0}:
-		result = "x is -ve"
-		break
-	default:
-		result = "Invalid Number"
-}
-println result
+//Define Methods().Defining and Calling the Method in the same script.
+
+//def sub(int a, int b) {
+	//println "Sub is "+ (a-b)
+//}
+
+//sub(10,5)
+
+//
+
+CustomKeywords.'myTestPackage.myTestKeyword.mySum'(5, 2)
+
+CustomKeywords.'myTestPackage.myTestKeyword.mySub'(9, 2)
+
+CustomKeywords.'myTestPackage.myTestKeyword.myDivide'(10, 9)
+
+CustomKeywords.'myTestPackage.myTestKeyword.myMultiply'(8, 7)
+
+CustomKeywords.'myTestPackage.myTestKeyword.myAdd'(7, 12)
+
 
 
 

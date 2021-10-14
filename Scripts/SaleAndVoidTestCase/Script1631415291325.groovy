@@ -17,21 +17,26 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-//To Open the Browser
+// Open the Browser
 WebUI.openBrowser('')
 
-//To Open the Url demo.velocitypayment.com/admin/imtiazdemo
+// Open the Url demo.velocitypayment.com/admin/imtiazdemo
 WebUI.navigateToUrl('https://demo.velocitypayment.com/admin/imtiazdemo')
 
-//To set text iahmed as username in the username section
-WebUI.setText(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Username_user'), 'iahmed')
+CustomKeywords.'velocityPackage.adminSuiteLogin.aslogin'(GlobalVariable.Username,GlobalVariable.Password)
 
-//to set encryptedtext that is password in the password section
-WebUI.setEncryptedText(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Password_password'),
-	'ReH0Zrvn+OVqGz5NDrNXZg==')
+//println result2
+
+
+// set text iahmed as username in the username section
+//WebUI.setText(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Username_user'), 'iahmed')
+
+// set encryptedtext that is password in the password section
+//WebUI.setEncryptedText(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Password_password'),
+//	'ReH0Zrvn+OVqGz5NDrNXZg==')
 
 //click the password button or image on the page.
-WebUI.click(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Password_button2'))
+//WebUI.click(findTestObject('Object Repository/VelocityPayment/LoginPage/input_Password_button2'))
 //select the link for payment application
 WebUI.click(findTestObject('Object Repository/VelocityPayment/DashboardPage/a_Access No Convenience Fees'))
 //
@@ -69,10 +74,10 @@ WebUI.setText(findTestObject('Object Repository/VelocityPayment/SalePaymentEntry
 
 WebUI.click(findTestObject('Object Repository/VelocityPayment/SalePaymentEntryPage/input_UDF2_submit'))
 
-//To Verify a particular text is present on the page.
+// Verify a particular text is present on the page.
 WebUI.verifyTextPresent('Transaction Successful', false)
 
-//To Grab the entire text of the page on Receipt Page.
+// Grab the entire text of the page on Receipt Page.
 result = WebUI.getText(findTestObject('Object Repository/VelocityPayment/ReceiptPage/div_Transaction Successful'))
 
 //println("The Result: "+result)
@@ -81,6 +86,7 @@ result = WebUI.getText(findTestObject('Object Repository/VelocityPayment/Receipt
 def remID = result.substring(203, 227).trim()
 //def abc = 123
 //def xyz = 'My Name is Haris'
+//What is step 85 doing?
 System.out.println('remID: ' + remID)
 
 //WebUI.delay(30)
@@ -93,6 +99,7 @@ WebUI.setText(findTestObject('Object Repository/VelocityPayment/CreditOrVoidPage
 
 WebUI.click(findTestObject('Object Repository/VelocityPayment/CreditOrVoidPage/input_AdvancedSearch_sbutton'))
 
+//Grab the entire text of the page.Search Results Page.
 result2 = WebUI.getText(findTestObject('Object Repository/VelocityPayment/SearchResultsPage/div_document'))
 
 //println("The Result2: "+result2)
@@ -101,20 +108,26 @@ def paymentID = result2.substring(249,256).trim()
 
 println("The paymentID is: "+paymentID)
 
+def remIDLink = WebUI.modifyObjectProperty(findTestObject('Object Repository/VelocityPayment/SearchResultsPage/a_2717329'),'text','equals',paymentID,true)
 
-/*
- * WebUI.click(findTestObject('Object
- * Repository/VelocityPayment/SearchResultsPage/a_2717329'))
- * 
- * WebUI.click(findTestObject('Object
- * Repository/VelocityPayment/TransactionDetailsPage/a_Void this transaction'))
- * 
- * WebUI.click(findTestObject('Object
- * Repository/VelocityPayment/VoidConfirmPage/input_Date_submit'))
- * 
- * //Verify that Transaction Successful text is present on the VoidReceiptPage.
- * WebUI.verifyTextPresent('Transaction Successful', false)
- */
+WebUI.click(remIDLink)
+
+
+
+
+
+
+
+  
+  WebUI.click(findTestObject('Object Repository/VelocityPayment/TransactionDetailsPage/a_Void this transaction'))
+  
+  WebUI.click(findTestObject('Object Repository/VelocityPayment/VoidConfirmPage/input_Date_submit'))
+  
+  //Verify that Transaction Successful text is present on the VoidReceiptPage.
+  WebUI.verifyTextPresent('Transaction Successful', false)
+  
+ 
+ 
 
 
 

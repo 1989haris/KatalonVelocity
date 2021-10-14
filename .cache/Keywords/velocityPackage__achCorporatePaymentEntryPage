@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "B0CAA84A04C69047E801F25E907F3B69",
+  "keywordClasses": [
+    {
+      "name": "velocityPackage.achCorporatePaymentEntryPage",
+      "keywordMethods": [
+        {
+          "name": "CorporatePaymentEntry",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

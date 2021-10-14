@@ -17,32 +17,23 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+String dataFile = "CallDataDirectly/CallDataFromExcelDirectly"
 
-//SwitchCase
+def numOfRows = findTestData(dataFile).getRowNumbers()
 
-/*
- * def x = 10
- */
-/*
- * 
- * 
- * def result = ""
- */
 
-switch(x) {
-	case {x=0}:
-		result = "x is zero"
-		break
-	case {x>0}:
-		result = "x is +ve"
-		break
-	case {x<0}:
-		result = "x is -ve"
-		break
-	default:
-		result = "Invalid Number"
-}
-println result
+println("Number of Records: " + numOfRows)
+
+for (def i = 1; i <= numOfRows; i++)
+	
+    {
+	CustomKeywords.'velocityPackage.callDataExcelDirectly.getDataExcel'(i, dataFile )
+		
+	
+    }
+
+
+
 
 
 

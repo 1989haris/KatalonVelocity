@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "A01E632B6626E12E5C095DBACE005A52",
+  "keywordClasses": [
+    {
+      "name": "velocityPackage.SalespaymentEntryPage",
+      "keywordMethods": [
+        {
+          "name": "paymententry",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
